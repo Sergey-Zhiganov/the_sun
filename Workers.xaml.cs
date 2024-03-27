@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace up01_01
 {
-    /// <summary>
-    /// Логика взаимодействия для Workers.xaml
-    /// </summary>
     public partial class Workers : Window
     {
         MainWindow window = new MainWindow();
@@ -71,15 +68,29 @@ namespace up01_01
             {
                 middleName = " ";
             }
+            DataRowView office = OfficeCbx.SelectedItem as DataRowView;
+            if (office == null)
+            {
+                office = OfficeCbx.Items[0] as DataRowView;
+            }
+
             if (window.BaseCheck(null, new string[4] {PostTbx.Text, User_loginTbx.Text,
                 User_passwordPbx.Password, PhoneTbx.Text},
                 new string[3] { SurnameTbx.Text, FirstnameTbx.Text, middleName },
-                new object[2] {OfficeCbx.SelectedItem, RoleCbx.SelectedItem },
+                new object[2] { office, RoleCbx.SelectedItem },
                 new string[1] {PassportTbx.Text}))
             {
+                int? office_id;
+                if (OfficeCbx.SelectedItem as DataRowView == null)
+                {
+                    office_id = null;
+                }
+                else
+                {
+                    office_id = Convert.ToInt32(office["ID_Office"]);
+                }
                 MainWindow.tables.Workers.InsertWorkers(Convert.ToInt32(PassportTbx.Text), SurnameTbx.Text,
-                    FirstnameTbx.Text, MiddleNameTbx.Text, PostTbx.Text,
-                    Convert.ToInt32((OfficeCbx.SelectedItem as DataRowView)["ID_Office"]),
+                    FirstnameTbx.Text, MiddleNameTbx.Text, PostTbx.Text, office_id,
                     User_loginTbx.Text, User_passwordPbx.Password,
                     Convert.ToInt32((RoleCbx.SelectedItem as DataRowView)["ID_Role"]),
                     PhoneTbx.Text);
