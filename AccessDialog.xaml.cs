@@ -13,7 +13,7 @@ namespace up01_01
             List<CheckBox> list = new List<CheckBox>()
             {
                 Check0, Check1, Check2, Check3, Check4, Check5,
-                Check6, Check7, Check8, Check9, Check10
+                Check6, Check7, Check8, Check9
             };
             for (int i = 0; i < Roles.access.Length - 1; i++)
             {
@@ -26,7 +26,7 @@ namespace up01_01
             List<CheckBox> list = new List<CheckBox>()
             {
                 Check0, Check1, Check2, Check3, Check4, Check5,
-                Check6, Check7, Check8, Check9, Check10
+                Check6, Check7, Check8, Check9
             };
             Roles.access = "";
             foreach (CheckBox c in list)
