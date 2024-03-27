@@ -21,7 +21,7 @@
     </Grid.RowDefinitions>
     <CheckBox x:Name="Check0" Content="Материалы" FontSize="16"/>
     <CheckBox x:Name="Check1" Grid.Row="1" Content="Размеры" FontSize="16"/>
-   <CheckBox x:Name="Check2" Grid.Row="2" Content="Товары" FontSize="16"/>
+    <CheckBox x:Name="Check2" Grid.Row="2" Content="Товары" FontSize="16"/>
     <CheckBox x:Name="Check3" Grid.Row="3" Content="Услуги" FontSize="16"/>
     <CheckBox x:Name="Check4" Grid.Row="4" Content="Офисы" FontSize="16"/>
     <CheckBox x:Name="Check5" Grid.Row="5" Content="Продукты" FontSize="16"/>
