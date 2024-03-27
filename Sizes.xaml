@@ -1,0 +1,34 @@
+﻿<Window x:Class="up01_01.Sizes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Sizes" Height="392" Width="173">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Button Content="Назад" Click="Button_Click"/>
+        <DataGrid Grid.Row="1" x:Name="SizesGrid" AutoGenerateColumns="False" SelectionChanged="SizesGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Размер" Binding="{Binding Size}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox
+        x:Name="SizeTbx"
+        Grid.Row="2"
+        materialDesign:HintAssist.Hint="Размер"
+             MaxLength="11" materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"/>
+        <Button Grid.Row="3" Content="Добавить" Click="Button_Click_1"/>
+        <Button Grid.Row="4" Content="Изменить" Click="Button_Click_2"/>
+        <Button Grid.Row="5" Content="Удалить" Click="Button_Click_3"/>
+    </Grid>
+</Window>

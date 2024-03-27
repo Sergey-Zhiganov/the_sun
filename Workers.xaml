@@ -1,0 +1,68 @@
+﻿<Window x:Class="up01_01.Workers"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Workers" Height="688" Width="1008">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Button Content="Назад" Click="Button_Click"/>
+        <DataGrid Grid.Row="1" x:Name="WorkersGrid" AutoGenerateColumns="False" SelectionChanged="WorkersGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Firstname}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Post}"/>
+                <DataGridTextColumn Header="Офис" Binding="{Binding Title}"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding User_login}"/>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding PasswordHidden}"/>
+                <DataGridTextColumn Header="Роль" Binding="{Binding Title1}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="PassportTbx" Grid.Row="2" materialDesign:HintAssist.Hint="Паспорт"
+                  MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"/>
+        <TextBox x:Name="SurnameTbx" Grid.Row="3" materialDesign:HintAssist.Hint="Фамилия"
+                  MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"/>
+        <TextBox x:Name="FirstnameTbx" Grid.Row="4" materialDesign:HintAssist.Hint="Имя"
+                  MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"/>
+        <TextBox x:Name="MiddleNameTbx" Grid.Row="5" materialDesign:HintAssist.Hint="Отчество"
+                  MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"/>
+        <TextBox x:Name="PostTbx" Grid.Row="6" materialDesign:HintAssist.Hint="Должность"
+                  MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"/>
+        <ComboBox x:Name="OfficeCbx" DisplayMemberPath="Title" Grid.Row="7" materialDesign:HintAssist.Hint="Офис"/>
+        <TextBox x:Name="User_loginTbx" Grid.Row="8" materialDesign:HintAssist.Hint="Логин"
+                  MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"/>
+        <PasswordBox Style="{StaticResource MaterialDesignRevealPasswordBox}"
+                     x:Name="User_passwordPbx"
+                     Grid.Row="9"
+                     materialDesign:HintAssist.Hint="Пароль"
+                      MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"/>
+        <ComboBox x:Name="RoleCbx" DisplayMemberPath="Title" Grid.Row="10" materialDesign:HintAssist.Hint="Роль"/>
+        <TextBox x:Name="PhoneTbx" Grid.Row="11" materialDesign:HintAssist.Hint="Телефон"
+                  MaxLength="20" materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"/>
+        <Button Grid.Row="12" Content="Добавить" Click="Button_Click_1"/>
+        <Button Grid.Row="13" Content="Изменить" Click="Button_Click_2"/>
+        <Button Grid.Row="14" Content="Удалить" Click="Button_Click_3"/>
+    </Grid>
+</Window>

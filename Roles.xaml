@@ -1,0 +1,36 @@
+﻿<Window x:Class="up01_01.Roles"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Roles" Height="392" Width="291">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Button Content="Назад" Click="Button_Click"/>
+        <DataGrid Grid.Row="1" x:Name="RolesGrid" AutoGenerateColumns="False" SelectionChanged="RolesGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}"/>
+                <DataGridTextColumn Header="Права" Binding="{Binding Access}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="TitleTbx" Grid.Row="2" materialDesign:HintAssist.Hint="Название"
+                  MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"/>
+        <TextBox x:Name="AccessTbx" Grid.Row="3" IsEnabled="False" materialDesign:HintAssist.Hint="Права"/>
+        <Button Grid.Row="4" Content="Изменить права" Click="Chose_Access"/>
+        <Button Grid.Row="5" Content="Добавить" Click="Button_Click_1"/>
+        <Button Grid.Row="6" Content="Изменить" Click="Button_Click_2"/>
+        <Button Grid.Row="7" Content="Удалить" Click="Button_Click_3"/>
+    </Grid>
+</Window>

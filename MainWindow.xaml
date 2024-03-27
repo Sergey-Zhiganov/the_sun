@@ -1,0 +1,36 @@
+﻿<Window x:Class="up01_01.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="261" Width="357">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox
+            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+            x:Name="User_login"
+            materialDesign:HintAssist.Hint="Логин"
+            Height="50"
+            MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"/>
+        <PasswordBox
+            Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}"
+            Grid.Row="1"
+            x:Name="User_password"
+            materialDesign:HintAssist.Hint="Пароль"
+            materialDesign:TextFieldAssist.HasClearButton="True"
+            Height="50"
+            MaxLength="30" materialDesign:TextFieldAssist.CharacterCounterVisibility="Collapsed"/>
+        <Button
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            Content="Войти"
+            Grid.Row="2"
+            VerticalAlignment="Stretch" Click="Button_Click"/>
+    </Grid>
+</Window>
