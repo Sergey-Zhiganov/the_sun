@@ -1,4 +1,4 @@
-﻿using Microsoft.WindowsAPICodePack.Dialogs;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,7 +27,7 @@ namespace up01_01
             if (result == CommonFileDialogResult.Ok)
             {
                 string filePath = System.IO.Path.Combine(dialog.FileName, $"Чек №{order_id}.txt");
-                string recipe = $"\t\t\tПохоронное агенство\n\t\t\tКассовый чек №{order_id}\n";
+                string recipe = $"\t\t\tПохоронное агенство \"Солнышко\"\n\t\t\tКассовый чек №{order_id}\n";
                 foreach (DataRow row in rows)
                 {
                     if (row["Title"].ToString() == "")
@@ -61,9 +61,12 @@ namespace up01_01
         private void GetRecipe_Click(object sender, RoutedEventArgs e)
         {
             DataRowView orders = OrdersGrid.SelectedItem as DataRowView;
-            AddRecipe((int)orders["ID_Order"], (int)orders["Total_price"],
-                (int)orders["Received"],
-                (OrdersProductsGrid.ItemsSource as DataTable).Rows);
+            if (orders != null)
+            {
+                AddRecipe((int)orders["ID_Order"], (int)orders["Total_price"],
+                    (int)orders["Received"],
+                    (OrdersProductsGrid.ItemsSource as DataTable).Rows);
+            }
         }
     }
 }
