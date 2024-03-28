@@ -14,29 +14,18 @@ namespace up01_01
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string error = "";
-            if (User_login.Text.Length == 0)
+            if (BaseCheck(null, new string[2] { User_login.Text, User_password.Password }))
             {
-                error = "Не введен логин\n";
+                ListTables.user = tables.Workers.Login(User_login.Text, User_password.Password);
+                if (ListTables.user.Count == 0)
+                {
+                    MessageBox.Show("Неверный логин или пароль");
+                    return;
+                }
+                ListTables listtables = new ListTables();
+                listtables.Show();
+                Close();
             }
-            if (User_password.Password.Length == 0)
-            {
-                error += "Не введен пароль";
-            }
-            if (error != "")
-            {
-                MessageBox.Show(error);
-                return;
-            }
-            ListTables.user = tables.Workers.Login(User_login.Text, User_password.Password);
-            if (ListTables.user.Count == 0)
-            {
-                MessageBox.Show("Неверный логин или пароль");
-                return;
-            }
-            ListTables listtables = new ListTables();
-            listtables.Show();
-            Close();
         }
         public bool BaseCheck(object grid, string[] text = null, string[] text1 = null, object[] objects = null,
             string[] ints = null)
