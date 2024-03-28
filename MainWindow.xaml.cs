@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 
@@ -122,9 +122,12 @@ namespace up01_01
                 }
                 else
                 {
-                    if (Regex.IsMatch(s, @"\p{N}|\p{Cs}"))
+                    foreach (char i in s)
                     {
-                        return true;
+                        if (!char.IsLetter(i))
+                        {
+                            return true;
+                        }
                     }
                 }
             }
